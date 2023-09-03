@@ -1,0 +1,399 @@
+import java.util.*;
+class tictactoe
+{ 
+ static Scanner sc=new Scanner(System.in);
+ public void printboard(final char a[]) {
+ System.out.println(a[7] + "|" + a[8] + "|" + a[9]);
+ System.out.println("-+-+-");
+ System.out.println(a[4] + "|" + a[5] + "|" + a[6]);
+ System.out.println("-+-+-");
+ System.out.println(a[1] + "|" + a[2] + "|" + a[3]);
+ }
+ public void printboard1() {
+ System.out.println("7" + "|" + "8" + "|" + "9");
+ System.out.println("-+-+-");
+ System.out.println("4" + "|" + "5" + "|" + "6");
+ System.out.println("-+-+-");
+ System.out.println("1" + "|" + "2" + "|" + "3");
+ }
+ public int[] winnercheck(final char a[], final char xy, final char ab, int st
+, int pq, final int im,
+ final int bc[]) {
+ if (a[1] == a[2] && a[2] == a[3] && a[1] != ' ') {
+ if (a[1] == xy) {
+ System.out.println("Congratulations you won the game");
+ st += 1;} else if (a[1] == ab) {
+ System.out.println("you lost the game Cpu won");
+ st += 1;}
+ pq = 1;
+ } else if (a[4] == a[5] && a[5] == a[6] && a[4] != ' ') {
+ if (a[4] == xy) {
+ System.out.println("Congratulations you won the game");
+ st += 1;} else if (a[4] == ab) {
+ System.out.println("you lost the game Cpu won");
+ st += 1;}
+ pq = 1;
+ } else if (a[7] == a[8] && a[8] == a[9] && a[7] != ' ') {
+ if (a[7] == xy) {
+ System.out.println("Congratulations you won the game");
+ st += 1;} else if (a[7] == ab) {
+ System.out.println("you lost the game Cpu won");
+ st += 1;}
+ pq = 1;
+ } else if (a[1] == a[4] && a[4] == a[7] && a[1] != ' ') {
+ if (a[1] == xy) {
+ System.out.println("Congratulations you won the game");
+ st += 1;} else if (a[1] == ab) {
+ System.out.println("you lost the game Cpu won");
+ st += 1;}
+ pq = 1;
+ } else if (a[2] == a[5] && a[5] == a[8] && a[2] != ' ') {
+ if (a[2] == xy) {
+ System.out.println("Congratulations you won the game");
+ st += 1;} else if (a[2] == ab) {
+ System.out.println("you lost the game Cpu won");
+ st += 1;}
+ pq = 1;
+ } else if (a[3] == a[6] && a[6] == a[9] && a[3] != ' ') {
+ if (a[3] == xy) {
+ System.out.println("Congratulations you won the game");
+ st += 1;} else if (a[3] == ab) {
+ System.out.println("you lost the game Cpu won");
+ st += 1;}
+ pq = 1;
+ } else if (a[1] == a[5] && a[5] == a[9] && a[1] != ' ') {
+ if (a[1] == xy) {
+ System.out.println("Congratulations you won the game");
+ st += 1;} else if (a[1] == ab) {
+ System.out.println("you lost the game Cpu won");
+ st += 1;}
+ pq = 1;
+ } else if (a[3] == a[5] && a[5] == a[7] && a[3] != ' ') {
+ if (a[3] == xy) {
+ System.out.println("Congratulations you won the game");
+ st += 1;} else if (a[3] == ab) {
+ System.out.println("you lost the game Cpu won");
+ st += 1;}
+ pq = 1;
+ } else if (im >= 9) {
+ System.out.println("Its a tie");
+ pq = 1;
+ } else
+ pq = 0;
+ bc[0] = st;
+ bc[1] = pq;
+ return bc;
+ }
+ public void computer(final char a[], final char xy, final char ab) {
+ if (a[1] == ab && a[2] == ab && a[3] == ' ') {
+ a[3] = ab; }
+ else if (a[2] == ab && a[3] == ab && a[1] == ' ') {
+ a[1] = ab;}
+ else if (a[1] == ab && a[3] == ab && a[2] == ' ') {
+ a[2] = ab;}
+ else if (a[4] == ab && a[5] == ab && a[6] == ' ') {
+ a[6] = ab;}
+ else if (a[5] == ab && a[6] == ab && a[4] == ' ') {
+ a[4] = ab;}
+ else if (a[4] == ab && a[6] == ab && a[5] == ' ') {
+ a[5] = ab;}
+ else if (a[7] == ab && a[8] == ab && a[9] == ' ') {
+ a[9] = ab;}
+ else if (a[8] == ab && a[9] == ab && a[7] == ' ') {
+ a[7] = ab;}
+ else if (a[7] == ab && a[9] == ab && a[8] == ' ') {
+ a[8] = ab;}
+ else if (a[1] == ab && a[4] == ab && a[7] == ' ') {
+ a[7] = ab;}
+ else if (a[1] == ab && a[7] == ab && a[4] == ' ') {
+ a[4] = ab;}
+ else if (a[4] == ab && a[7] == ab && a[1] == ' ') {
+ a[1] = ab;}
+ else if (a[2] == ab && a[5] == ab && a[8] == ' ') {
+ a[8] = ab;}
+ else if (a[5] == ab && a[8] == ab && a[2] == ' ') {
+ a[2] = ab;}
+ else if (a[2] == ab && a[8] == ab && a[5] == ' ') {
+ a[5] = ab;}
+ else if (a[3] == ab && a[6] == ab && a[9] == ' ') {
+ a[9] = ab;}
+ else if (a[6] == ab && a[9] == ab && a[3] == ' ') {
+ a[3] = ab;}
+ else if (a[3] == ab && a[9] == ab && a[6] == ' ') {
+ a[6] = ab;}
+ else if (a[1] == ab && a[5] == ab && a[9] == ' ') {
+ a[9] = ab;}
+ else if (a[1] == ab && a[9] == ab && a[5] == ' ') {
+ a[5] = ab;}
+ else if (a[5] == ab && a[9] == ab && a[1] == ' ') {
+ a[1] = ab;}
+ else if (a[3] == ab && a[5] == ab && a[7] == ' ') {
+ a[7] = ab;}
+ else if (a[5] == ab && a[7] == ab && a[3] == ' ') {
+ a[3] = ab; }
+ else if (a[3] == ab && a[7] == ab && a[5] == ' ') {
+ a[5] = ab;}
+ else if ((a[1] == xy || a[3] == xy || a[7] == xy || a[9] == xy) && a[5]==
+' '){
+ a[5] = ab;}
+ else if (a[1] == xy && a[2] == xy && a[3] == ' ') {
+ a[3] = ab; }
+ else if (a[2] == xy && a[3] == xy && a[1] == ' ') {
+ a[1] = ab;}
+ else if (a[1] == xy && a[3] == xy && a[2] == ' ') {
+ a[2] = ab;}
+ else if (a[4] == xy && a[5] == xy && a[6] == ' ') {
+ a[6] = ab;}
+ else if (a[5] == xy && a[6] == xy && a[4] == ' ') {
+ a[4] = ab;}
+ else if (a[4] == xy && a[6] == xy && a[5] == ' ') {
+ a[5] = ab;}
+ else if (a[7] == xy && a[8] == xy && a[9] == ' ') {
+ a[9] = ab;}
+ else if (a[8] == xy && a[9] == xy && a[7] == ' ') {
+ a[7] = ab;}
+ else if (a[7] == xy && a[9] == xy && a[8] == ' ') {
+ a[8] = ab;}
+ else if (a[1] == xy && a[4] == xy && a[7] == ' ') {
+ a[7] = ab;}
+ else if (a[1] == xy && a[7] == xy && a[4] == ' ') {
+ a[4] = ab;}
+ else if (a[4] == xy && a[7] == xy && a[1] == ' ') {
+ a[1] = ab;}
+ else if (a[2] == xy && a[5] == xy && a[8] == ' ') {
+ a[8] = ab;}
+ else if (a[5] == xy && a[8] == xy && a[2] == ' ') {
+ a[2] = ab;}
+ else if (a[2] == xy && a[8] == xy && a[5] == ' ') {
+ a[5] = ab;}
+ else if (a[3] == xy && a[6] == xy && a[9] == ' ') {
+ a[9] = ab;}
+ else if (a[6] == xy && a[9] == xy && a[3] == ' ') {
+ a[3] = ab;}
+ else if (a[3] == xy && a[9] == xy && a[6] == ' ') {
+ a[6] = ab;}
+ else if (a[1] == xy && a[5] == xy && a[9] == ' ') {
+ a[9] = ab;}
+ else if (a[1] == xy && a[9] == xy && a[5] == ' ') {
+ a[5] = ab;}
+ else if (a[5] == xy && a[9] == xy && a[1] == ' ') {
+ a[1] = ab;}
+ else if (a[3] == xy && a[5] == xy && a[7] == ' ') {
+ a[7] = ab;}
+ else if (a[5] == xy && a[7] == xy && a[3] == ' ') {
+ a[3] = ab;}
+ else if (a[3] == xy && a[7] == xy && a[5] == ' ') {
+ a[5] = ab;} else {
+ int y = 0;
+ while (y == 0) {
+ final int move = (int) (Math.random() * 9) + 1;
+ if (a[move] == ' ') {
+ a[move] = ab;
+ y = 1;}
+ else
+ y = 0;}} 
+ }
+ public void usermove(char a[],char xy) {
+ int y = 0;
+ while (y == 0) {
+ System.out.println("Enter the position");
+ final int move = sc.nextInt();
+ if (a[move] == ' ') {
+ a[move] = xy;
+ break;
+ } else {
+ System.out.println("That place is filled Enter again"
+);
+ y = 0;
+ }}
+ }
+ public void user1(char a[]){
+ int y = 0;
+ while (y == 0) {
+ System.out.println("first user chance");
+ System.out.println("Enter the position");
+ final int move = sc.nextInt();
+ if (a[move] == ' ') {
+ a[move] = 'x';
+ break;
+ } else {
+ System.out.println("That place is filled Enter again"
+);
+ y = 0;
+ }}
+ }
+ public void user2(char a[]){
+ int y = 0;
+ while (y == 0) {
+ System.out.println("Second user chance");
+ System.out.println("Enter the position");
+ final int move = sc.nextInt();
+ if (a[move] == ' ') {
+ a[move] = '0';
+ break;
+ } else {
+ System.out.println("That place is filled Enter again"
+);
+ y = 0;
+ }}
+ }
+ public int[] winnercheck1(final char a[], int st, int pq, final int im,final
+int bc[]) {
+ if (a[1] == a[2] && a[2] == a[3] && a[1] != ' ') {
+ if (a[1] == 'x') {
+ System.out.println("Cogratulations team x won the game");
+ st += 1;} else if (a[1] == '0') {
+ System.out.println("Congratulations team 0 won the game");
+ st += 1;}
+ pq = 1;
+ } else if (a[4] == a[5] && a[5] == a[6] && a[4] != ' ') {
+ if (a[4] == 'x') {
+ System.out.println("Cogratulations team x won the game");
+ st += 1;} else if (a[4] == '0') {
+ System.out.println("Congratulations team 0 won the game");
+ st += 1;}
+ pq = 1;
+ } else if (a[7] == a[8] && a[8] == a[9] && a[7] != ' ') {
+ if (a[7] == 'x') {
+ System.out.println("Cogratulations team x won the game");
+ st += 1;} else if (a[7] == '0') {
+ System.out.println("Congratulations team 0 won the game");
+ st += 1;}
+ pq = 1;
+ } else if (a[1] == a[4] && a[4] == a[7] && a[1] != ' ') {
+ if (a[1] == 'x') {
+ System.out.println("Cogratulations team x won the game");
+ st += 1;} else if (a[1] == '0') {
+ System.out.println("Congratulations team 0 won the game");
+ st += 1;}
+ pq = 1;
+ } else if (a[2] == a[5] && a[5] == a[8] && a[2] != ' ') {
+ if (a[2] == 'x') {
+ System.out.println("Cogratulations team x won the game");
+ st += 1;} else if (a[2] == '0') {
+ System.out.println("Congratulations team 0 won the game");
+ st += 1;}
+ pq = 1;
+ } else if (a[3] == a[6] && a[6] == a[9] && a[3] != ' ') {
+ if (a[3] == 'x') {
+ System.out.println("Cogratulations team x won the game");
+ st += 1;} else if (a[3] == '0') {
+ System.out.println("Congratulations team 0 won the game");
+ st += 1;}
+ pq = 1;
+ } else if (a[1] == a[5] && a[5] == a[9] && a[1] != ' ') {
+ if (a[1] == 'x') {
+ System.out.println("Cogratulations team x won the game");
+ st += 1;} else if (a[1] == '0') {
+ System.out.println("Congratulations team 0 won the game");
+ st += 1;}
+ pq = 1;
+ } else if (a[3] == a[5] && a[5] == a[7] && a[3] != ' ') {
+ if (a[3] == 'x') {
+ System.out.println("Congratulations team x won the game");
+ st += 1;} else if (a[3] == '0') {
+ System.out.println("Congratulations team 0 won the game");
+ st += 1;}
+ pq = 1;
+ } else if (im >= 9) {
+ System.out.println("Its a tie");
+ pq = 1;
+ } else
+ pq = 0;
+ bc[0] = st;
+ bc[1] = pq;
+ return bc;
+ }
+ public static void main(final String[] args) {
+ int sop = 0;
+ char abcd;
+ while (sop == 0) {
+ final tictactoe tc = new tictactoe();
+ final int b[] = new int[2];
+ System.out.println("if you want to play multiplayer then type m else if y
+ou want to play against Computer then type c");
+ abcd=sc.next().charAt(0);
+ if (abcd=='m'){
+ int i = 0, s = 0, p = 0;
+ final char a[] = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+ tc.printboard1();
+ while (p == 0) {
+ if (s == 0){
+ tc.winnercheck1(a, s, p, i,b);}
+ s=b[0];p=b[1];
+ if ((i < 9) && (s == 0)) {
+ tc.user1(a);
+ tc.printboard(a);
+ System.out.println("-----------------------------------------
+---------");}
+ i += 1;
+ if (s == 0){
+ tc.winnercheck1(a, s, p, i,b);
+ s=b[0];p=b[1];}
+ if ((i < 9) && (s == 0)) {
+ tc.user2(a);
+ tc.printboard(a);
+ System.out.println("-----------------------------------------
+---------");}
+ i += 1;} }
+ else if (abcd=='c'){
+ char xy, ab = '0';
+ System.out.println("Choose between x && 0");
+ xy = sc.next().charAt(0);
+ if (xy == 'X' || xy == 'x') {
+ ab = '0';
+ } else if (xy == '0')
+ ab = 'x';
+ final char a[] = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+ tc.printboard1();
+ int i = 0, s = 0, p = 0;
+ while (p == 0) {
+ if (xy == 'x') {
+ if (s == 0){
+ tc.winnercheck(a, xy, ab, s, p, i,b);}
+ s=b[0];p=b[1];
+ if ((i < 9) && (s == 0)) {
+ tc.usermove(a, xy);
+ tc.printboard(a);
+ System.out.println("-----------------------------------------
+---------");}
+ i += 1;
+ if (s == 0){
+ tc.winnercheck(a, xy, ab, s, p, i,b);
+ s=b[0];p=b[1];}
+ if ((i < 9) && (s == 0)) {
+ tc.computer(a, xy, ab);
+ tc.printboard(a);
+ System.out.println("-----------------------------------------
+---------");}
+ i += 1;} else {
+ if (s == 0){
+ tc.winnercheck(a, xy, ab, s, p, i,b);
+ s=b[0];p=b[1];}
+ if ((i < 9) && (s == 0)) {
+ tc.computer(a, xy, ab);
+ tc.printboard(a);
+ System.out.println("-----------------------------------------
+---------");}
+ i += 1;
+ if (s == 0){
+ tc.winnercheck(a, xy, ab, s, p, i,b);}
+ s=b[0];p=b[1];
+ if ((i < 9) && (s == 0)) {
+ tc.usermove(a, xy);
+ tc.printboard(a);
+ System.out.println("-----------------------------------------
+---------");}
+ i+=1;}}} 
+ char yyoo;char yo;
+ System.out.println("If you want to play more then type y else type any ot
+her key");
+ yyoo=sc.next().charAt(0);;
+ yo=Character.toLowerCase(yyoo);
+ if (yo=='y')
+ sop=0;
+ else
+ sop=1;
+ }
+ }
+}
