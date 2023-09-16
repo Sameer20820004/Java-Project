@@ -368,8 +368,7 @@ int bc[]) {
  if ((i < 9) && (s == 0)) {
  tc.computer(a, xy, ab);
  tc.printboard(a);
- System.out.println("-----------------------------------------
----------");}
+ System.out.println("--------------------------------------------------");}
  i += 1;
  if (s == 0){
  tc.winnercheck(a, xy, ab, s, p, i,b);}
@@ -377,8 +376,7 @@ int bc[]) {
  if ((i < 9) && (s == 0)) {
  tc.usermove(a, xy);
  tc.printboard(a);
- System.out.println("-----------------------------------------
----------");}
+ System.out.println("-------------------------------------------------");}
  i+=1;}}} 
  char yyoo;char yo;
  System.out.println("If you want to play more then type y else type any other key");
